@@ -1,4 +1,5 @@
-package com.banco.springboot.models.entity;
+package com.banco.springboot.app.banco.models.entity;
+
 
 import java.io.Serializable;
 import java.util.Date;
