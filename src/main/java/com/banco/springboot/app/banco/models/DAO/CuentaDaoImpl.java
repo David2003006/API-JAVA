@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.banco.springboot.app.banco.models.entity.Cuenta;
 
+
 @Repository()
 public class CuentaDaoImpl implements ICuentaDao {
 
@@ -33,6 +34,18 @@ public class CuentaDaoImpl implements ICuentaDao {
         }else{
             em.persist(cuenta);
         }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Cuenta findOne(long id) {
+       return em.find(Cuenta.class, id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public void delete(Long id) {
+       em.remove(findOne(id));
     }
 
     

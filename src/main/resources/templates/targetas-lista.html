@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text ="${titulo}"></title>
+</head>
+<body>
+    <h3 th:text="${titulo}"></h3>
+    <hr>
+
+    <a href="@{/formtargeta}">Registrar targeta</a>
+
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero de targeta</th>
+                <th>icv</th>
+                <th>vencimiento</th>
+                <th>Cuenta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <p th:if="${targetas.isEmpty()}">No hay targeta en la base de datos</p>
+            <tr  th:each="targeta: ${targetas}"></tr>
+            <tr th:each="targeta: ${targetas}">
+                <td th:text="${targetas.getId()}"></td>
+                <td th:text="${targetas.getNumero_targeta()}"></td>
+                <td th:text="${targetas.getIcv()}"></td>
+                <td th:text="${targetas.getVencimiento()}"></td>
+                <td th:text="${targetas.getCuenta()}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>
