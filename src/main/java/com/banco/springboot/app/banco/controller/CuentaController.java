@@ -1,4 +1,4 @@
-package com.banco.springboot.app.controller;
+package com.banco.springboot.app.banco.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +14,10 @@ public class CuentaController {
     @Autowired
     private ICuentaDao cuentaDao;
 
-    
-    @RequestMapping(value="/lista" , method = RequestMethod.GET)
+    @RequestMapping(value = "/lista", method = RequestMethod.GET)
     public String cuentaLista(Model model){ 
-        model.addAttribute("titulo", "Lista Cuenta");
-        model.addAttribute("cuentas", cuentaDao.findAll());
-        return "Lista";
+     model.addAttribute("titulo", "Lista Cuenta");
+     model.addAttribute("cuentas", cuentaDao.findAll());
+    return "lista";
     }
 }

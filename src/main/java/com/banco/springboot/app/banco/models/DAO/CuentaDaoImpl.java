@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.banco.springboot.app.banco.models.entity.Cuenta;
 
-@Repository("cuentaDao")
+@Repository()
 public class CuentaDaoImpl implements ICuentaDao {
 
     @PersistenceContext
