@@ -1,18 +1,22 @@
 package com.banco.springboot.app.banco.models.entity;
 
-  import java.io.Serializable;
+    import java.io.Serializable;
     import java.util.Date;
+    import java.util.List;
     
     import javax.persistence.Entity;
+    import javax.persistence.FetchType;
     import javax.persistence.GeneratedValue;
+    import javax.persistence.CascadeType;
     import javax.persistence.Column;
     import javax.persistence.Id;
+    import javax.persistence.OneToMany;
     import javax.persistence.GenerationType;
     import javax.persistence.Table;
     import javax.persistence.Temporal;
     import javax.persistence.TemporalType;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+    import javax.validation.constraints.NotEmpty;
+    import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat; 
     
@@ -43,6 +47,9 @@ import org.springframework.format.annotation.DateTimeFormat;
         @Temporal(TemporalType.DATE)
         @DateTimeFormat(pattern = "yyyy-MM-dd")
             private Date diaCreacion;
+        
+        @OneToMany(fetch= FetchType.LAZY, mappedBy = "cuenta", cascade = CascadeType.MERGE)
+        private List<Targetas> targetas;
 
         
         public void setId(Long id) {
