@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+    
+    <h3 th:text="${titulo}"></h3>
+    <br>
+    <p th:text="${mensaje}"></p>
+    <br>
+
+    <tbody>
+        <p th:if="${result}"  th:text="${mensaje}"></p>
+
+        <div>
+            <form th:action="@{/formtargeta}" th:object="${targetas}"
+            method="post">
+            <table>
+                <tr>
+                    <td >Numero de Targeta (16 dijitos)</td>
+                    <td><input type="text" th:field="*{numero_targeta}"></td>
+                </tr>
+                <tr>
+                    <td>Numero de icv (3 digitos)</td>
+                    <td><input type="text" th:field="*{icv}"></td>
+                </tr>
+                <tr>
+                    <td>Fecha de Vencimiento (yyyy-MM-dd)</td>
+                    <td><input type="text" th:field="*{vencimiento}"></td>
+                </tr>
+                <tr>
+                    <td>Id Cuenta</td>
+                    <td>
+                        <select th:field="*{Cuenta}">
+                            <option th:each="cuenta: ${listaCuentas}"
+                            th:value="${cuenta.getId()}"
+                            th:text="${cuenta.getId()+ 'Nombre= cuenta.getNombre()' + }"
+                            ></option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br><input type="submit" value="Registrar targeta" />
+        </form>
+        </div>
+    </tbody>
+    <hr>
+        <a href="@{tagetas-lista}">Volver</a>
+</body>
+</html>

@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 import com.banco.springboot.app.banco.models.DAO.ICuentaDao;
 import com.banco.springboot.app.banco.models.entity.Cuenta;
-import com.banco.springboot.app.banco.models.entity.Targetas;
+
 
 @Controller
 public class CuentaController {
