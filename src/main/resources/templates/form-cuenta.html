@@ -15,7 +15,7 @@
 		
 		<div>
 			<!-- importante agregar los atributos de esta etiqueta form -->
-			<form th:action="@{/formcuenta}" th:object="${cuenta}" method="post">
+			<form th:action="@{/form-cuenta}" th:object="${cuenta}" method="post">
 				<table>
 					<tr>
 						<td>Nombre de cliente</td>
@@ -31,11 +31,11 @@
 					</tr>
 					<tr>
 						<td>Numero de telefono</td>
-						<td><input type="text" th:field="*{numeroTelefono}" required></td>
+						<td><input type="text" th:field="*{numero_telefono}" required></td>
 						<div class="msjAdvertencia"
-							th:if="${#fields.hasErrors('numeroTelefono')}"
-							th:errors="*{numeroTelefono}"></div>
-					</tr>
+							th:if="${#fields.hasErrors('numero_telefono')}"
+							th:errors="*{numero_telefono}"></div>
+                    </tr>
 					<tr>
 						<td>Fecha de actual (yyyy-MM-dd)</td>
 						<td><input type="text" th:field="*{diaCreacion}"

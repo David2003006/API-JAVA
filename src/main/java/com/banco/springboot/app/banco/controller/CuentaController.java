@@ -23,6 +23,8 @@ public class CuentaController {
     @Autowired
     private ICuentaDao cuentaDao;
 
+    
+
     @RequestMapping(value = "/cuentas", method = RequestMethod.GET)
     public String cuentaLista(Model model){ 
      model.addAttribute("titulo", "Lista Cuenta");
@@ -53,12 +55,12 @@ public class CuentaController {
         return "form-Cuenta";
     }
 
-    @RequestMapping(value = "/formCuenta", method = RequestMethod.POST)
+    @RequestMapping(value = "/form-cuenta", method = RequestMethod.POST)
     public String guardar(@Valid Cuenta cuenta, BindingResult result, Model model, SessionStatus status){
 
         if(result.hasErrors()){
             model.addAttribute("titulo", "Formulario Cuentas");
-            return "formCuenta";
+            return "form-cuenta";
         }else{
             cuentaDao.save(cuenta);
             status.setComplete();
@@ -66,14 +68,14 @@ public class CuentaController {
         }
     }
 
-    @RequestMapping(value = "/eliminar-Cuenta/{id}")
+    @RequestMapping(value = "eliminar-cuenta/{id}")
     public String eliminar(@PathVariable(value = "id") Long id){
 
         if(id > 0){
             cuentaDao.delete(id);
         }
 
-        return "redirect:index";
+        return "redirect:/cuentas";
     }
 
 }

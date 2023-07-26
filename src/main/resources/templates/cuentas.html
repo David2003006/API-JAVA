@@ -56,11 +56,11 @@
 				<td th:text="${cuenta.getId()}"></td>
 				<td th:text="${cuenta.getNombre()}"></td>
 				<td th:text="${cuenta.getSaldo()}"></td>
-				<td th:text="${cuenta.getNumeroTelefono()}"></td>
+				<td th:text="${cuenta.getNumero_telefono()}"></td>
 				<td th:text="${cuenta.getDiaCreacion()}"></td>
 				
 				<td><a class="btnEditar" th:href="@{/form-cuenta/} + ${cuenta.getId()}" th:text="'Editar'"></a></td>
-				<td><a class="btnEliminar" th:href="@{/eliminarcuenta/} + ${cuenta.getId()}" th:text="'Eliminar'"
+				<td><a class="btnEliminar" th:href="@{/eliminar-cuenta/} + ${cuenta.getId()}" th:text="'Eliminar'"
 					onclick="return confirm('¿Desea eliminar la cuenta?');"></a></td>
 			</tr>
 		</tbody>
