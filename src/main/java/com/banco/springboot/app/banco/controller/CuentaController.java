@@ -66,7 +66,7 @@ public class CuentaController {
         }
     }
 
-    @RequestMapping(value = "/eliminar/{id}")
+    @RequestMapping(value = "/eliminar-Cuenta/{id}")
     public String eliminar(@PathVariable(value = "id") Long id){
 
         if(id > 0){

@@ -5,10 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.banco.springboot.app.banco.models.entity.Targetas;
 
+@Repository()
 public class TargetaDaoImpl implements ITaregetaDao {
 
     @PersistenceContext
