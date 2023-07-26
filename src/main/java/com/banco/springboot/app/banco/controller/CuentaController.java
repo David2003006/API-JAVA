@@ -27,7 +27,7 @@ public class CuentaController {
     public String cuentaLista(Model model){ 
      model.addAttribute("titulo", "Lista Cuenta");
      model.addAttribute("cuentas", cuentaDao.findAll());
-    return "lista";
+    return "cuentas";
     }
 
     @RequestMapping(value = "/form-cuenta")

@@ -40,15 +40,15 @@ public class TargetaController {
             binder.registerCustomEditor(Cuenta.class, "Cuenta", cuentaEditor);
         }
 
-        @RequestMapping(value="/targeta-lista" , method = RequestMethod.GET)
+        @RequestMapping(value="/targetas-lista" , method = RequestMethod.GET)
         public String listar(Model model){
 
             model.addAttribute("titulo", "Listado de Targetas");
             model.addAttribute("targetas", taregetaDao.findAll());
-            return "lista-targetas";
+            return "targetas-lista";
 
         }
-
+        
        @RequestMapping(value = "/formtargeta")
         public String crear(Map<String, Object>  model, Model modellist){
 
